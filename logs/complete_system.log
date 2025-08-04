@@ -1,0 +1,14 @@
+2025-08-02 11:14:46,666 - dev.ai_core - INFO - AI Core initialized
+2025-08-02 11:14:46,669 - monitoring.ai_ml_monitor - INFO - AI/ML Monitor initialized
+2025-08-02 11:14:46,672 - monitoring.operational_monitor - INFO - Operational Monitor initialized
+2025-08-02 11:14:46,674 - monitoring.integrated_monitor - INFO - Integrated Monitor initialized
+2025-08-02 11:14:46,677 - monitoring.ai_ml_monitor - INFO - AI/ML monitoring started
+2025-08-02 11:14:46,678 - monitoring.integrated_monitor - INFO - AI/ML monitoring started
+2025-08-02 11:14:46,680 - monitoring.operational_monitor - INFO - Operational monitoring started
+2025-08-02 11:14:46,680 - monitoring.integrated_monitor - INFO - Operational monitoring started
+2025-08-02 11:14:47,660 - monitoring.integrated_monitor - INFO - Integrated dashboard started
+2025-08-02 11:14:47,730 - monitoring.ai_ml_monitor - WARNING - ALERT: HIGH_MEMORY_USAGE - Memory usage: 94.6%
+2025-08-02 11:14:47,731 - monitoring.operational_monitor - WARNING - OPERATIONAL ALERT: HIGH_ERROR_RATE - Error rate: 150.00%
+2025-08-02 11:14:47,732 - dev.ai_core - INFO - AI Core initialized
+2025-08-02 11:14:49,680 - monitoring.integrated_monitor - ERROR - Error running dashboard: name 'plt' is not defined
+2025-08-02 11:14:50,770 - __main__ - ERROR - System error: main thread is not in main loop

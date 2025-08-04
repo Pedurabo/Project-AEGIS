@@ -1,0 +1,471 @@
+Metadata-Version: 2.4
+Name: penetration-tools
+Version: 0.1.0
+Summary: A comprehensive penetration testing framework with DevOps integration
+Author-email: Security Team <security@company.com>
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Security
+Classifier: Topic :: System :: Networking :: Monitoring
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: pydantic>=2.5.0
+Requires-Dist: pydantic-settings>=2.1.0
+Requires-Dist: sqlalchemy>=2.0.0
+Requires-Dist: alembic>=1.13.0
+Requires-Dist: psycopg2-binary>=2.9.0
+Requires-Dist: redis>=5.0.0
+Requires-Dist: python-jose[cryptography]>=3.3.0
+Requires-Dist: passlib[bcrypt]>=1.7.4
+Requires-Dist: python-multipart>=0.0.6
+Requires-Dist: cryptography>=41.0.0
+Requires-Dist: celery>=5.3.0
+Requires-Dist: redis>=5.0.0
+Requires-Dist: aiofiles>=23.2.0
+Requires-Dist: scapy>=2.5.0
+Requires-Dist: nmap-python>=0.7.1
+Requires-Dist: paramiko>=3.4.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: selenium>=4.15.0
+Requires-Dist: sqlmap>=1.7.0
+Requires-Dist: w3af>=2.0.0
+Requires-Dist: zapv2>=0.0.20
+Requires-Dist: pymongo>=4.6.0
+Requires-Dist: mysql-connector-python>=8.2.0
+Requires-Dist: psycopg2-binary>=2.9.0
+Requires-Dist: prometheus-client>=0.19.0
+Requires-Dist: structlog>=23.2.0
+Requires-Dist: elasticsearch>=8.11.0
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: pytest-asyncio>=0.21.0
+Requires-Dist: pytest-cov>=4.1.0
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: black>=23.11.0
+Requires-Dist: flake8>=6.1.0
+Requires-Dist: mypy>=1.7.0
+Requires-Dist: bandit>=1.7.5
+Requires-Dist: safety>=2.3.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: rich>=13.7.0
+Requires-Dist: typer>=0.9.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: pyyaml>=6.0.1
+Requires-Dist: xmltodict>=0.13.0
+Requires-Dist: lxml>=4.9.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.12.0; extra == "dev"
+Requires-Dist: black>=23.11.0; extra == "dev"
+Requires-Dist: flake8>=6.1.0; extra == "dev"
+Requires-Dist: mypy>=1.7.0; extra == "dev"
+Requires-Dist: bandit>=1.7.5; extra == "dev"
+Requires-Dist: safety>=2.3.0; extra == "dev"
+Requires-Dist: pre-commit>=3.6.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: mkdocs>=1.5.0; extra == "docs"
+Requires-Dist: mkdocs-material>=9.4.0; extra == "docs"
+Requires-Dist: mkdocstrings[python]>=0.24.0; extra == "docs"
+Provides-Extra: production
+Requires-Dist: gunicorn>=21.2.0; extra == "production"
+Requires-Dist: uvloop>=0.19.0; extra == "production"
+
+# 🔐 Penetration Testing Toolset
+
+A comprehensive, modular penetration testing framework built with modern DevOps practices, Infrastructure as Code (IaC), and Security as Code (SaC) principles.
+
+## 🎯 Project Overview
+
+This project is a modular, extensible, and security-focused penetration testing toolset designed for ethical hackers, cybersecurity professionals, and red teams. It enables thorough testing of systems, networks, and applications to uncover vulnerabilities and assess real-world resilience against attacks.
+
+## 🚀 Key Features
+
+### Network Scanning & Enumeration
+- **Port scanning** (TCP, UDP, stealth)
+- **OS and service detection**
+- **Subnet and host discovery**
+- **Vulnerability assessment**
+
+### Web Application Testing
+- **SQL injection, XSS, CSRF detection**
+- **File inclusion and directory traversal**
+- **Web fuzzing engine with customizable payloads**
+- **API security testing**
+
+### Database Penetration Modules
+- **MySQL, MSSQL, PostgreSQL exploit tools**
+- **Credential brute-forcing and privilege escalation**
+- **Data exfiltration modules**
+
+### Password & Authentication Attacks
+- **Brute-force & dictionary attacks** (FTP, SSH, RDP, etc.)
+- **Password spraying, credential stuffing**
+- **Hash dumping and offline cracking**
+
+### Post-Exploitation Tools
+- **Shell access** (reverse/bind)
+- **Privilege escalation scripts** (Linux/Windows)
+- **Persistence, keylogging, and lateral movement**
+
+### Reporting & Analytics
+- **Auto-generated reports with severity tagging**
+- **JSON, CSV, or PDF export support**
+- **Session logging for compliance & audit**
+- **Real-time dashboards**
+
+## 🏗️ Architecture
+
+### Technology Stack
+
+#### Backend
+- **Language**: Python 3.11+
+- **Framework**: FastAPI (async, high-performance)
+- **Database**: PostgreSQL + Redis (caching)
+- **Message Queue**: RabbitMQ/Celery
+- **Authentication**: JWT + OAuth2
+
+#### Frontend
+- **Framework**: React 18 + TypeScript
+- **UI Library**: Material-UI
+- **State Management**: Redux Toolkit
+- **Real-time**: WebSocket connections
+
+#### Infrastructure
+- **Containerization**: Docker + Docker Compose
+- **Orchestration**: Kubernetes (EKS)
+- **IaC**: Terraform + Ansible
+- **CI/CD**: GitHub Actions + ArgoCD
+- **Monitoring**: Prometheus + Grafana
+- **Logging**: ELK Stack
+
+## 🔄 DevOps Pipeline
+
+### Development Workflow
+```
+Feature Branch → Code Review → Automated Testing → Merge → Deploy
+```
+
+### CI/CD Stages
+1. **Security Scanning** - Bandit, Safety, Trivy
+2. **Code Quality** - Black, Flake8, MyPy
+3. **Testing** - Unit, Integration, Performance
+4. **Build** - Docker image creation
+5. **Deploy** - Infrastructure provisioning and application deployment
+6. **Monitor** - Health checks and performance monitoring
+
+## 🛡️ Security Features
+
+### Security as Code (SaC)
+- **Infrastructure Security**: VPC, Security Groups, WAF
+- **Access Control**: IAM, RBAC, Zero Trust
+- **Encryption**: TLS 1.3, AES-256, Key Management
+- **Secrets Management**: HashiCorp Vault, AWS Secrets Manager
+
+### Application Security
+- **Input Validation**: OWASP Top 10 protection
+- **Authentication**: Multi-factor, SSO integration
+- **Authorization**: Role-based access control
+- **Audit Logging**: Comprehensive activity tracking
+
+### Container Security
+- **Image Scanning**: Trivy, Clair
+- **Runtime Security**: Falco, OPA Gatekeeper
+- **Network Policies**: Kubernetes Network Policies
+- **Pod Security**: Pod Security Standards
+
+## 📊 Monitoring & Observability
+
+### Metrics Collection
+- **Application Metrics**: Custom business metrics
+- **Infrastructure Metrics**: CPU, Memory, Disk, Network
+- **Security Metrics**: Failed logins, suspicious activities
+- **Business Metrics**: Scan success rates, vulnerability findings
+
+### Logging Strategy
+- **Structured Logging**: JSON format with correlation IDs
+- **Log Levels**: DEBUG, INFO, WARN, ERROR, CRITICAL
+- **Log Retention**: Compliance-based retention policies
+- **Log Analysis**: Real-time threat detection
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.11+
+- Docker & Docker Compose
+- Terraform 1.6+
+- kubectl
+- AWS CLI (for production deployment)
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-org/penetration-tools.git
+   cd penetration-tools
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -e ".[dev]"
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+4. **Start local services**
+   ```bash
+   docker-compose up -d postgres redis
+   ```
+
+5. **Run database migrations**
+   ```bash
+   alembic upgrade head
+   ```
+
+6. **Start the application**
+   ```bash
+   uvicorn penetration_tools.main:app --reload
+   ```
+
+7. **Access the application**
+   - API: http://localhost:8000
+   - Documentation: http://localhost:8000/docs
+   - Health Check: http://localhost:8000/health
+
+### Production Deployment
+
+1. **Configure AWS credentials**
+   ```bash
+   aws configure
+   ```
+
+2. **Initialize Terraform**
+   ```bash
+   cd infrastructure/terraform
+   terraform init
+   ```
+
+3. **Deploy infrastructure**
+   ```bash
+   terraform plan -var-file=production.tfvars
+   terraform apply -var-file=production.tfvars
+   ```
+
+4. **Deploy application**
+   ```bash
+   kubectl apply -f k8s/production/
+   ```
+
+## 📁 Project Structure
+
+```
+penetration-tools/
+├── src/
+│   └── penetration_tools/
+│       ├── api/                    # API routes and endpoints
+│       ├── core/                   # Core components (logging, db, security)
+│       ├── modules/                # Penetration testing modules
+│       │   ├── network/           # Network scanning tools
+│       │   ├── web/               # Web application testing
+│       │   ├── database/          # Database penetration tools
+│       │   ├── wireless/          # Wireless testing (optional)
+│       │   └── post_exploit/      # Post-exploitation tools
+│       ├── models/                # Database models
+│       ├── services/              # Business logic services
+│       └── utils/                 # Utility functions
+├── infrastructure/
+│   ├── terraform/                 # Infrastructure as Code
+│   ├── kubernetes/                # Kubernetes manifests
+│   └── docker/                    # Docker configurations
+├── tests/
+│   ├── unit/                      # Unit tests
+│   ├── integration/               # Integration tests
+│   └── performance/               # Performance tests
+├── docs/                          # Documentation
+├── scripts/                       # Utility scripts
+└── config/                        # Configuration files
+```
+
+## 🧪 Testing
+
+### Running Tests
+```bash
+# Unit tests
+pytest tests/unit/
+
+# Integration tests
+pytest tests/integration/ -m integration
+
+# Performance tests
+pytest tests/performance/ -m performance
+
+# All tests with coverage
+pytest --cov=src --cov-report=html
+```
+
+### Security Testing
+```bash
+# Run security scans
+bandit -r src/
+safety check
+trivy fs .
+```
+
+## 📈 Monitoring & Alerts
+
+### Prometheus Metrics
+- **Application Metrics**: Request rates, response times, error rates
+- **Business Metrics**: Scan success rates, vulnerability discovery rates
+- **Security Metrics**: Failed authentication attempts, suspicious activities
+
+### Grafana Dashboards
+- **Application Overview**: Real-time application health
+- **Security Dashboard**: Security events and alerts
+- **Infrastructure Dashboard**: Resource utilization and performance
+
+### Alerting
+- **Critical Alerts**: Security incidents, system failures
+- **Warning Alerts**: Performance degradation, resource usage
+- **Info Alerts**: Successful operations, status updates
+
+## 🔧 Configuration
+
+### Environment Variables
+```bash
+# Database
+DATABASE_URL=postgresql://user:pass@localhost/penetration_tools
+REDIS_URL=redis://localhost:6379/0
+
+# Security
+SECRET_KEY=your-secret-key
+JWT_ALGORITHM=HS256
+
+# Scanning
+MAX_CONCURRENT_SCANS=10
+SCAN_TIMEOUT_MINUTES=60
+
+# Monitoring
+LOG_LEVEL=INFO
+PROMETHEUS_ENABLED=true
+```
+
+### Configuration Files
+- `pyproject.toml` - Python project configuration
+- `alembic.ini` - Database migration configuration
+- `docker-compose.yml` - Local development services
+- `infrastructure/terraform/` - Infrastructure configuration
+
+## 🤝 Contributing
+
+1. **Fork the repository**
+2. **Create a feature branch**
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Make your changes**
+4. **Run tests and linting**
+   ```bash
+   pytest
+   black src/ tests/
+   flake8 src/ tests/
+   mypy src/
+   ```
+5. **Commit your changes**
+   ```bash
+   git commit -m "Add amazing feature"
+   ```
+6. **Push to the branch**
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+7. **Create a Pull Request**
+
+## 📋 Development Roadmap
+
+### Phase 1: Foundation (Weeks 1-4) ✅
+- [x] Project setup and CI/CD pipeline
+- [x] Basic infrastructure with Terraform
+- [x] Core API framework with FastAPI
+- [x] Database design and migrations
+- [x] Authentication and authorization
+
+### Phase 2: Core Modules (Weeks 5-12)
+- [ ] Network scanning module
+- [ ] Web application testing module
+- [ ] Database penetration module
+- [ ] Basic reporting system
+- [ ] CLI interface
+
+### Phase 3: Advanced Features (Weeks 13-20)
+- [ ] Wireless testing module
+- [ ] Post-exploitation tools
+- [ ] Advanced reporting and analytics
+- [ ] Web UI development
+- [ ] Plugin system
+
+### Phase 4: Production Ready (Weeks 21-24)
+- [ ] Security hardening
+- [ ] Performance optimization
+- [ ] Comprehensive testing
+- [ ] Documentation and training
+- [ ] Production deployment
+
+## 📊 Success Metrics
+
+### Technical Metrics
+- **Uptime**: 99.9% availability
+- **Response Time**: <200ms API response time
+- **Scan Speed**: 1000+ hosts per hour
+- **Accuracy**: >95% vulnerability detection rate
+
+### Business Metrics
+- **User Adoption**: 100+ active users
+- **Scan Volume**: 10,000+ scans per month
+- **Vulnerability Discovery**: 1000+ vulnerabilities found
+- **Time to Remediate**: 50% reduction in remediation time
+
+### Security Metrics
+- **Zero Critical Vulnerabilities**: In production systems
+- **Compliance**: 100% compliance with security standards
+- **Incident Response**: <1 hour mean time to detection
+- **False Positive Rate**: <5% in vulnerability detection
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **Documentation**: [docs/](docs/)
+- **Issues**: [GitHub Issues](https://github.com/your-org/penetration-tools/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-org/penetration-tools/discussions)
+- **Security**: security@your-org.com
+
+## ⚠️ Disclaimer
+
+This tool is designed for **ethical hacking and authorized penetration testing only**. Users must ensure they have proper authorization before testing any systems. The authors are not responsible for any misuse of this software.
+
+## 🙏 Acknowledgments
+
+- **OWASP** for security guidelines and best practices
+- **FastAPI** team for the excellent web framework
+- **Terraform** community for infrastructure automation
+- **Kubernetes** community for container orchestration
+- **Security researchers** worldwide for continuous improvements
+
+---
+
+**🔐 Built with ❤️ by the Security Team** 

@@ -1,0 +1,106 @@
+{
+  "name": "aegis-intelligence",
+  "displayName": "AEGIS Intelligence",
+  "description": "Revolutionary AEGIS Intelligence System Integration for VS Code",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:aegis.penetrationTest",
+    "onCommand:aegis.bankingOperations",
+    "onCommand:aegis.globalDominance",
+    "onCommand:aegis.aiAssistant",
+    "onCommand:aegis.openAegisUI"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aegis.penetrationTest",
+        "title": "🎯 AEGIS: Penetration Testing",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.bankingOperations",
+        "title": "🏦 AEGIS: Banking Operations",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.globalDominance",
+        "title": "🌍 AEGIS: Global Dominance",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.aiAssistant",
+        "title": "🤖 AEGIS: AI Assistant",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.openAegisUI",
+        "title": "🚀 AEGIS: Open Desktop UI",
+        "category": "AEGIS"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "aegis.penetrationTest",
+          "when": "true"
+        },
+        {
+          "command": "aegis.bankingOperations",
+          "when": "true"
+        },
+        {
+          "command": "aegis.globalDominance",
+          "when": "true"
+        },
+        {
+          "command": "aegis.aiAssistant",
+          "when": "true"
+        },
+        {
+          "command": "aegis.openAegisUI",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AEGIS Intelligence",
+      "properties": {
+        "aegis.enableAI": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable AEGIS AI Assistant"
+        },
+        "aegis.autoDeploy": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auto-deploy AEGIS capabilities"
+        },
+        "aegis.cursorIntegration": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Cursor AI integration"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "^14.14.37",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+} 

@@ -1,0 +1,25 @@
+{
+    "name": "penetration-tools/chat",
+    "description": "A penetration testing chat application",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "ratchet/pawl": "^0.4.1",
+        "react/socket": "^1.12",
+        "monolog/monolog": "^3.0",
+        "symfony/console": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PenetrationTools\\Chat\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "your.email@example.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

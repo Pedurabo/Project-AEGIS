@@ -1,0 +1,3 @@
+[console_scripts]
+pentest = penetration_tools.cli:main
+pentest-server = penetration_tools.server:main

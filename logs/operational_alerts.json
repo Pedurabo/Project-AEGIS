@@ -1,0 +1,9 @@
+[
+  {
+    "type": "HIGH_ERROR_RATE",
+    "message": "Error rate: 150.00%",
+    "timestamp": "2025-08-02T11:14:47.731637",
+    "severity": "HIGH",
+    "silo": "operational"
+  }
+]

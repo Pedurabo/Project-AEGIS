@@ -1,0 +1,166 @@
+{
+  "name": "aegis-cursor-composer",
+  "displayName": "AEGIS Cursor Composer",
+  "description": "Revolutionary AEGIS Intelligence System Integration for Cursor with Composer Chat",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:aegis.composerChat",
+    "onCommand:aegis.generatePenetrationCode",
+    "onCommand:aegis.generateBankingCode",
+    "onCommand:aegis.generateGlobalCode",
+    "onCommand:aegis.deployAegis",
+    "onCommand:aegis.openAegisComposer"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aegis.composerChat",
+        "title": "🤖 AEGIS: Composer Chat",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.generatePenetrationCode",
+        "title": "🎯 AEGIS: Generate Penetration Code",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.generateBankingCode",
+        "title": "🏦 AEGIS: Generate Banking Code",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.generateGlobalCode",
+        "title": "🌍 AEGIS: Generate Global Code",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.deployAegis",
+        "title": "🚀 AEGIS: Deploy System",
+        "category": "AEGIS"
+      },
+      {
+        "command": "aegis.openAegisComposer",
+        "title": "🤖 AEGIS: Open Composer UI",
+        "category": "AEGIS"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "aegis.composerChat",
+          "when": "true"
+        },
+        {
+          "command": "aegis.generatePenetrationCode",
+          "when": "true"
+        },
+        {
+          "command": "aegis.generateBankingCode",
+          "when": "true"
+        },
+        {
+          "command": "aegis.generateGlobalCode",
+          "when": "true"
+        },
+        {
+          "command": "aegis.deployAegis",
+          "when": "true"
+        },
+        {
+          "command": "aegis.openAegisComposer",
+          "when": "true"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "aegis.composerChat",
+          "when": "editorTextFocus",
+          "group": "aegis"
+        },
+        {
+          "command": "aegis.generatePenetrationCode",
+          "when": "editorTextFocus",
+          "group": "aegis"
+        },
+        {
+          "command": "aegis.generateBankingCode",
+          "when": "editorTextFocus",
+          "group": "aegis"
+        },
+        {
+          "command": "aegis.generateGlobalCode",
+          "when": "editorTextFocus",
+          "group": "aegis"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AEGIS Cursor Composer",
+      "properties": {
+        "aegis.enableComposer": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable AEGIS Composer Chat"
+        },
+        "aegis.autoGenerate": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auto-generate AEGIS code"
+        },
+        "aegis.cursorIntegration": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Cursor AI integration"
+        },
+        "aegis.composerTheme": {
+          "type": "string",
+          "default": "dark",
+          "enum": ["dark", "light"],
+          "description": "Composer chat theme"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "aegis.composerChat",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a"
+      },
+      {
+        "command": "aegis.generatePenetrationCode",
+        "key": "ctrl+shift+p",
+        "mac": "cmd+shift+p"
+      },
+      {
+        "command": "aegis.generateBankingCode",
+        "key": "ctrl+shift+b",
+        "mac": "cmd+shift+b"
+      },
+      {
+        "command": "aegis.generateGlobalCode",
+        "key": "ctrl+shift+g",
+        "mac": "cmd+shift+g"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "^14.14.37",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+} 

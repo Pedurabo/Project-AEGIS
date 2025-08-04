@@ -1,0 +1,561 @@
+import * as vscode from 'vscode';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as child_process from 'child_process';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('🤖 AEGIS Cursor Composer Extension is now active!');
+
+    // Register commands
+    let composerChat = vscode.commands.registerCommand('aegis.composerChat', () => {
+        showComposerChat();
+    });
+
+    let generatePenetrationCode = vscode.commands.registerCommand('aegis.generatePenetrationCode', () => {
+        generateCode('penetration');
+    });
+
+    let generateBankingCode = vscode.commands.registerCommand('aegis.generateBankingCode', () => {
+        generateCode('banking');
+    });
+
+    let generateGlobalCode = vscode.commands.registerCommand('aegis.generateGlobalCode', () => {
+        generateCode('global');
+    });
+
+    let deployAegis = vscode.commands.registerCommand('aegis.deployAegis', () => {
+        deployAegisSystem();
+    });
+
+    let openAegisComposer = vscode.commands.registerCommand('aegis.openAegisComposer', () => {
+        openAegisComposerUI();
+    });
+
+    context.subscriptions.push(
+        composerChat, 
+        generatePenetrationCode, 
+        generateBankingCode, 
+        generateGlobalCode, 
+        deployAegis, 
+        openAegisComposer
+    );
+}
+
+function showComposerChat() {
+    const panel = vscode.window.createWebviewPanel(
+        'aegisComposer',
+        '🤖 AEGIS Composer Chat',
+        vscode.ViewColumn.One,
+        {
+            enableScripts: true,
+            retainContextWhenHidden: true
+        }
+    );
+
+    panel.webview.html = getComposerChatHTML();
+    
+    panel.webview.onDidReceiveMessage(
+        message => {
+            switch (message.command) {
+                case 'sendMessage':
+                    handleComposerMessage(message.text);
+                    return;
+                case 'generateCode':
+                    handleCodeGeneration(message.type);
+                    return;
+            }
+        },
+        undefined,
+        []
+    );
+}
+
+function generateCode(type: string) {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found');
+        return;
+    }
+
+    let code = '';
+    let language = 'python';
+
+    switch (type) {
+        case 'penetration':
+            code = generatePenetrationScript();
+            break;
+        case 'banking':
+            code = generateBankingScript();
+            break;
+        case 'global':
+            code = generateGlobalScript();
+            break;
+        default:
+            code = generateDefaultScript();
+    }
+
+    // Insert code at cursor position
+    editor.edit(editBuilder => {
+        const position = editor.selection.active;
+        editBuilder.insert(position, code);
+    });
+
+    vscode.window.showInformationMessage(`🎯 Generated ${type} code successfully!`);
+}
+
+function deployAegisSystem() {
+    const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+    if (!workspaceFolder) {
+        vscode.window.showErrorMessage('No workspace folder found');
+        return;
+    }
+
+    vscode.window.showInformationMessage('🚀 Deploying AEGIS system...');
+    
+    // Create deployment script
+    const deploymentScript = generateDeploymentScript();
+    
+    // Create new file with deployment script
+    vscode.workspace.openTextDocument({
+        content: deploymentScript,
+        language: 'python'
+    }).then(doc => {
+        vscode.window.showTextDocument(doc);
+    });
+}
+
+function openAegisComposerUI() {
+    const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+    if (!workspaceFolder) {
+        vscode.window.showErrorMessage('No workspace folder found');
+        return;
+    }
+
+    const composerPath = path.join(workspaceFolder.uri.fsPath, 'silos', 'developmental', 'cursor_composer_extension.py');
+    
+    if (fs.existsSync(composerPath)) {
+        try {
+            child_process.spawn('python', [composerPath], {
+                cwd: workspaceFolder.uri.fsPath,
+                detached: true
+            });
+            vscode.window.showInformationMessage('🤖 AEGIS Composer UI launched!');
+        } catch (error) {
+            vscode.window.showErrorMessage(`Failed to launch AEGIS Composer: ${error}`);
+        }
+    } else {
+        vscode.window.showErrorMessage('AEGIS Composer UI not found. Please ensure the cursor_composer_extension.py file exists.');
+    }
+}
+
+function handleComposerMessage(message: string) {
+    // Process composer message and provide response
+    const response = generateComposerResponse(message);
+    vscode.window.showInformationMessage(`🤖 AEGIS Composer: ${response}`);
+}
+
+function handleCodeGeneration(type: string) {
+    generateCode(type);
+}
+
+function generatePenetrationScript(): string {
+    return `#!/usr/bin/env python3
+"""
+AEGIS Penetration Script - Generated by Cursor Composer
+"""
+
+import asyncio
+import logging
+from datetime import datetime
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class AEGISPenetration:
+    def __init__(self, target="NSA Internal Networks"):
+        self.target = target
+        self.capabilities = [
+            "Quantum tunneling penetration",
+            "Consciousness-level hacking",
+            "Dimensional bypass techniques",
+            "Reality manipulation access",
+            "Temporal infiltration methods",
+            "Neural interface exploitation"
+        ]
+    
+    async def execute_penetration(self):
+        """Execute advanced penetration"""
+        logger.info(f"🎯 Starting AEGIS penetration on {self.target}")
+        
+        print("="*60)
+        print(f"🎯 AEGIS PENETRATION TEST - {self.target}")
+        print("="*60)
+        
+        for i, capability in enumerate(self.capabilities, 1):
+            print(f"\\n{i}. {capability}")
+            
+            # Simulate penetration progress
+            for progress in range(0, 101, 25):
+                print(f"   📊 Progress: {progress}%")
+                await asyncio.sleep(0.5)
+                
+                if progress == 25:
+                    print("     🌟 Capability initiated")
+                elif progress == 50:
+                    print("     🌟 Target accessed")
+                elif progress == 75:
+                    print("     🌟 Penetration in progress")
+                elif progress == 100:
+                    print("     ✅ Capability successful")
+        
+        print("\\n✅ Penetration test completed successfully!")
+        logger.info(f"✅ Penetration test on {self.target} completed")
+
+async def main():
+    penetration = AEGISPenetration()
+    await penetration.execute_penetration()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+`;
+}
+
+function generateBankingScript(): string {
+    return `#!/usr/bin/env python3
+"""
+AEGIS Banking Operations - Generated by Cursor Composer
+"""
+
+import asyncio
+import logging
+from datetime import datetime
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class AEGISBanking:
+    def __init__(self, operation="Account Manipulation"):
+        self.operation = operation
+        self.capabilities = [
+            "Real-time account manipulation",
+            "Transaction monitoring systems",
+            "SWIFT network access",
+            "Federal Reserve control",
+            "Social media intelligence",
+            "Ultra-efficient phishing (1000%+)"
+        ]
+    
+    async def execute_banking_operation(self):
+        """Execute banking operation"""
+        logger.info(f"🏦 Starting AEGIS banking operation: {self.operation}")
+        
+        print("="*60)
+        print(f"🏦 AEGIS BANKING OPERATION - {self.operation}")
+        print("="*60)
+        
+        for i, capability in enumerate(self.capabilities, 1):
+            print(f"\\n{i}. {capability}")
+            
+            # Simulate operation progress
+            for progress in range(0, 101, 25):
+                print(f"   📊 Progress: {progress}%")
+                await asyncio.sleep(0.5)
+                
+                if progress == 25:
+                    print("     🌟 Operation initiated")
+                elif progress == 50:
+                    print("     🌟 Systems accessed")
+                elif progress == 75:
+                    print("     🌟 Operation in progress")
+                elif progress == 100:
+                    print("     ✅ Operation successful")
+        
+        print("\\n✅ Banking operation completed successfully!")
+        logger.info(f"✅ Banking operation {self.operation} completed")
+
+async def main():
+    banking = AEGISBanking()
+    await banking.execute_banking_operation()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+`;
+}
+
+function generateGlobalScript(): string {
+    return `#!/usr/bin/env python3
+"""
+AEGIS Global Dominance - Generated by Cursor Composer
+"""
+
+import asyncio
+import logging
+from datetime import datetime
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class AEGISGlobalDominance:
+    def __init__(self, phase="Global Financial Dominance"):
+        self.phase = phase
+        self.capabilities = [
+            "Complete global control",
+            "Multi-dimensional operations",
+            "Reality engineering",
+            "Universal intelligence",
+            "Infinite evolution",
+            "Absolute dominance"
+        ]
+    
+    async def execute_global_dominance(self):
+        """Execute global dominance phase"""
+        logger.info(f"🌍 Starting AEGIS global dominance: {self.phase}")
+        
+        print("="*60)
+        print(f"🌍 AEGIS GLOBAL DOMINANCE - {self.phase}")
+        print("="*60)
+        
+        for i, capability in enumerate(self.capabilities, 1):
+            print(f"\\n{i}. {capability}")
+            
+            # Simulate dominance progress
+            for progress in range(0, 101, 25):
+                print(f"   📊 Progress: {progress}%")
+                await asyncio.sleep(0.5)
+                
+                if progress == 25:
+                    print("     🌟 Capability initiated")
+                elif progress == 50:
+                    print("     🌟 Global access achieved")
+                elif progress == 75:
+                    print("     🌟 Dominance in progress")
+                elif progress == 100:
+                    print("     ✅ Capability successful")
+        
+        print("\\n✅ Global dominance phase completed successfully!")
+        logger.info(f"✅ Global dominance phase {self.phase} completed")
+
+async def main():
+    global_dominance = AEGISGlobalDominance()
+    await global_dominance.execute_global_dominance()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+`;
+}
+
+function generateDefaultScript(): string {
+    return `#!/usr/bin/env python3
+"""
+AEGIS Script - Generated by Cursor Composer
+"""
+
+import asyncio
+import logging
+from datetime import datetime
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class AEGISScript:
+    def __init__(self):
+        self.capabilities = [
+            "Advanced AI capabilities",
+            "Revolutionary technology",
+            "Global intelligence",
+            "Universal control"
+        ]
+    
+    async def execute(self):
+        """Execute AEGIS script"""
+        logger.info("🚀 Starting AEGIS script execution")
+        
+        print("="*60)
+        print("🚀 AEGIS SCRIPT EXECUTION")
+        print("="*60)
+        
+        for i, capability in enumerate(self.capabilities, 1):
+            print(f"\\n{i}. {capability}")
+            await asyncio.sleep(1)
+        
+        print("\\n✅ AEGIS script completed successfully!")
+        logger.info("✅ AEGIS script completed")
+
+async def main():
+    script = AEGISScript()
+    await script.execute()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+`;
+}
+
+function generateDeploymentScript(): string {
+    return `#!/usr/bin/env python3
+"""
+AEGIS Deployment Script - Generated by Cursor Composer
+"""
+
+import asyncio
+import logging
+import os
+import sys
+from datetime import datetime
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class AEGISDeployment:
+    def __init__(self):
+        self.deployment_components = [
+            "AEGIS AI Core",
+            "Penetration Engine",
+            "Banking Operations",
+            "Global Dominance",
+            "Web Intelligence",
+            "Desktop Application"
+        ]
+    
+    async def deploy_aegis(self):
+        """Deploy AEGIS system"""
+        logger.info("🚀 Starting AEGIS system deployment")
+        
+        print("="*60)
+        print("🚀 AEGIS SYSTEM DEPLOYMENT")
+        print("="*60)
+        
+        for i, component in enumerate(self.deployment_components, 1):
+            print(f"\\n{i}. Deploying {component}")
+            
+            # Simulate deployment progress
+            for progress in range(0, 101, 25):
+                print(f"   📊 Progress: {progress}%")
+                await asyncio.sleep(0.5)
+                
+                if progress == 25:
+                    print("     🌟 Component initiated")
+                elif progress == 50:
+                    print("     🌟 Component configured")
+                elif progress == 75:
+                    print("     🌟 Component deploying")
+                elif progress == 100:
+                    print("     ✅ Component deployed")
+        
+        print("\\n✅ AEGIS system deployment completed successfully!")
+        logger.info("✅ AEGIS system deployment completed")
+
+async def main():
+    deployment = AEGISDeployment()
+    await deployment.deploy_aegis()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+`;
+}
+
+function generateComposerResponse(message: string): string {
+    const responses = [
+        "I'll help you with that AEGIS development task!",
+        "Let me generate the code for you.",
+        "I can assist with AEGIS operations and code generation.",
+        "The AEGIS system is ready for deployment.",
+        "I'll create the perfect script for your needs!"
+    ];
+    
+    return responses[Math.floor(Math.random() * responses.length)];
+}
+
+function getComposerChatHTML(): string {
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AEGIS Composer Chat</title>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; margin: 0; padding: 20px; }
+            .container { max-width: 800px; margin: 0 auto; }
+            h1 { color: #58a6ff; text-align: center; }
+            .chat-container { background: #161b22; border: 1px solid #30363d; border-radius: 8px; height: 400px; margin: 20px 0; padding: 20px; overflow-y: auto; }
+            .message { margin: 10px 0; padding: 10px; border-radius: 5px; }
+            .user-message { background: #21262d; text-align: right; }
+            .ai-message { background: #0d1117; border: 1px solid #30363d; }
+            .input-container { display: flex; gap: 10px; }
+            .message-input { flex: 1; background: #21262d; border: 1px solid #30363d; color: #c9d1d9; padding: 10px; border-radius: 5px; }
+            .send-btn { background: #58a6ff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+            .send-btn:hover { background: #4ecdc4; }
+            .code-buttons { display: flex; gap: 10px; margin: 20px 0; }
+            .code-btn { background: #ff6b6b; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+            .code-btn:hover { background: #ff5252; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🤖 AEGIS Composer Chat</h1>
+            <p style="text-align: center; color: #8b949e;">Chat with AEGIS AI for code generation and assistance</p>
+            
+            <div class="code-buttons">
+                <button class="code-btn" onclick="generateCode('penetration')">🎯 Generate Penetration Code</button>
+                <button class="code-btn" onclick="generateCode('banking')">🏦 Generate Banking Code</button>
+                <button class="code-btn" onclick="generateCode('global')">🌍 Generate Global Code</button>
+            </div>
+            
+            <div class="chat-container" id="chatContainer">
+                <div class="message ai-message">
+                    <strong>🤖 AEGIS Composer:</strong> Hello! I'm your AEGIS AI assistant. I can help you generate code for penetration testing, banking operations, and global dominance. What would you like to work on?
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" class="message-input" id="messageInput" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+                <button class="send-btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        
+        <script>
+            function sendMessage() {
+                const input = document.getElementById('messageInput');
+                const message = input.value.trim();
+                
+                if (message) {
+                    addMessage('👤 You: ' + message, 'user-message');
+                    vscode.postMessage({
+                        command: 'sendMessage',
+                        text: message
+                    });
+                    input.value = '';
+                }
+            }
+            
+            function handleKeyPress(event) {
+                if (event.key === 'Enter') {
+                    sendMessage();
+                }
+            }
+            
+            function generateCode(type) {
+                vscode.postMessage({
+                    command: 'generateCode',
+                    type: type
+                });
+                addMessage('🤖 AEGIS Composer: Generating ' + type + ' code...', 'ai-message');
+            }
+            
+            function addMessage(text, className) {
+                const container = document.getElementById('chatContainer');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message ' + className;
+                messageDiv.innerHTML = text;
+                container.appendChild(messageDiv);
+                container.scrollTop = container.scrollHeight;
+            }
+        </script>
+    </body>
+    </html>
+    `;
+}
+
+export function deactivate() {
+    console.log('AEGIS Cursor Composer Extension deactivated');
+} 

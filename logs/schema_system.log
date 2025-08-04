@@ -1,0 +1,42 @@
+2025-08-02 12:31:52,791 - silos.developmental - INFO - developmental Silo initialized
+2025-08-02 12:31:52,791 - silos.security - INFO - security Silo initialized
+2025-08-02 12:31:52,792 - silos.operational - INFO - operational Silo initialized
+2025-08-02 12:31:52,805 - silos.developmental.teams.ai_research - INFO - AI Research Team initialized
+2025-08-02 12:31:52,805 - silos.developmental - INFO - Added team ai_research to developmental silo
+2025-08-02 12:31:52,806 - silos.developmental.teams.model_development - INFO - Model Development Team initialized
+2025-08-02 12:31:52,806 - silos.developmental - INFO - Added team model_development to developmental silo
+2025-08-02 12:31:52,806 - silos.developmental.teams.data_science - INFO - Data Science Team initialized
+2025-08-02 12:31:52,806 - silos.developmental - INFO - Added team data_science to developmental silo
+2025-08-02 12:31:52,819 - silos.security.teams.penetration_team - INFO - Advanced Penetration Team initialized
+2025-08-02 12:31:52,820 - silos.security - INFO - Added team penetration_team to security silo
+2025-08-02 12:31:52,820 - silos.security.teams.vulnerability_research - INFO - Vulnerability Research Team initialized
+2025-08-02 12:31:52,820 - silos.security - INFO - Added team vulnerability_research to security silo
+2025-08-02 12:31:52,820 - silos.security.teams.threat_intelligence - INFO - Threat Intelligence Team initialized
+2025-08-02 12:31:52,821 - silos.security - INFO - Added team threat_intelligence to security silo
+2025-08-02 12:31:52,834 - silos.operational.teams.coordination_team - INFO - Automation Coordination Team initialized
+2025-08-02 12:31:52,835 - silos.operational - INFO - Added team coordination_team to operational silo
+2025-08-02 12:31:52,835 - silos.operational.teams.monitoring_team - INFO - System Monitoring Team initialized
+2025-08-02 12:31:52,835 - silos.operational - INFO - Added team monitoring_team to operational silo
+2025-08-02 12:31:52,836 - silos.operational.teams.deployment_team - INFO - Deployment Team initialized
+2025-08-02 12:31:52,836 - silos.operational - INFO - Added team deployment_team to operational silo
+2025-08-02 12:31:52,862 - silos.developmental.services.training_service - INFO - AI Model Training Service initialized
+2025-08-02 12:31:52,862 - silos.developmental - INFO - Added service training_service to developmental silo
+2025-08-02 12:31:52,863 - silos.developmental.services.inference_service - INFO - AI Model Inference Service initialized
+2025-08-02 12:31:52,863 - silos.developmental - INFO - Added service inference_service to developmental silo
+2025-08-02 12:31:52,863 - silos.developmental.services.optimization_service - INFO - Model Optimization Service initialized
+2025-08-02 12:31:52,863 - silos.developmental - INFO - Added service optimization_service to developmental silo
+2025-08-02 12:31:52,875 - silos.security.services.scanning_service - INFO - Security Scanning Service initialized
+2025-08-02 12:31:52,876 - silos.security - INFO - Added service scanning_service to security silo
+2025-08-02 12:31:52,876 - silos.security.services.exploitation_service - INFO - Exploitation Service initialized
+2025-08-02 12:31:52,876 - silos.security - INFO - Added service exploitation_service to security silo
+2025-08-02 12:31:52,876 - silos.security.services.stealth_service - INFO - Stealth Operations Service initialized
+2025-08-02 12:31:52,877 - silos.security - INFO - Added service stealth_service to security silo
+2025-08-02 12:31:52,892 - silos.operational.services.workflow_service - INFO - Workflow Management Service initialized
+2025-08-02 12:31:52,892 - silos.operational - INFO - Added service workflow_service to operational silo
+2025-08-02 12:31:52,893 - silos.operational.services.monitoring_service - INFO - System Monitoring Service initialized
+2025-08-02 12:31:52,893 - silos.operational - INFO - Added service monitoring_service to operational silo
+2025-08-02 12:31:52,893 - silos.operational.services.deployment_service - INFO - Deployment Service initialized
+2025-08-02 12:31:52,893 - silos.operational - INFO - Added service deployment_service to operational silo
+2025-08-02 12:31:52,921 - interfaces.api_gateway - INFO - API Gateway Interface initialized
+2025-08-02 12:31:52,922 - interfaces.web_interface - INFO - Web User Interface initialized
+2025-08-02 12:31:52,922 - interfaces.cli_interface - INFO - Command Line Interface initialized
