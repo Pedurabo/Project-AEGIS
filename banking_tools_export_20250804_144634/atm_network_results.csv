@@ -1,0 +1,3 @@
+atm_id,location,bank,status,cash_level,last_transaction,security_level
+ATM1234,New York,Chase Bank,Online,"$45,000",2024-01-15 14:45:20,High
+ATM5678,London,Barclays,Online,"£30,000",2024-01-15 14:46:30,High

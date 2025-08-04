@@ -1,0 +1,30 @@
+BANKING TOOLS EXPORT REPORT
+==================================================
+Tool: SWIFT Access Tool
+Export Timestamp: 2025-08-04 14:46:34
+Format: TXT
+Version: 2.0.0
+==================================================
+
+Operation 1:
+------------------------------
+message_id: SWIFT123456
+source_bank: Chase Bank
+target_bank: Deutsche Bank
+amount: 50,000 EUR
+currency: EUR
+status: Sent
+direction: Outbound
+timestamp: 2024-01-15 14:40:30
+
+Operation 2:
+------------------------------
+message_id: SWIFT123457
+source_bank: Barclays
+target_bank: Bank of America
+amount: 25,000 GBP
+currency: GBP
+status: Received
+direction: Inbound
+timestamp: 2024-01-15 14:42:15
+

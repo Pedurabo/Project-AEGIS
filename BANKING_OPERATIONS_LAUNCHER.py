@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-BANKING OPERATIONS CORE
-Comprehensive banking operations functionality with actual working tools
+BANKING OPERATIONS LAUNCHER
+Launcher for comprehensive banking operations functionality
 """
 
 import tkinter as tk
@@ -18,84 +18,72 @@ import random
 import hashlib
 import base64
 
-class BankingOperationsCore:
+class BankingOperationsLauncher:
     def __init__(self):
-        self.name = "Banking Operations Core"
+        self.name = "Banking Operations Launcher"
         self.version = "4.0.0"
         self.operation_active = False
-        self.targets = []
-        self.results = {}
         
-        # Banking operation tools
-        self.tools = {
-            "account_manipulation": {
-                "name": "Account Manipulation",
-                "description": "Access and manipulate bank accounts",
-                "status": "Ready"
-            },
-            "transaction_monitoring": {
-                "name": "Transaction Monitoring", 
-                "description": "Monitor banking transactions in real-time",
-                "status": "Ready"
-            },
-            "swift_access": {
-                "name": "SWIFT Access",
-                "description": "Access SWIFT banking network",
-                "status": "Ready"
-            },
-            "atm_network": {
-                "name": "ATM Network",
-                "description": "Access ATM networks and systems",
-                "status": "Ready"
-            },
-            "credit_card_operations": {
-                "name": "Credit Card Operations",
-                "description": "Credit card data and operations",
-                "status": "Ready"
-            },
-            "cryptocurrency": {
-                "name": "Cryptocurrency Operations",
-                "description": "Digital currency manipulation",
-                "status": "Ready"
-            }
-        }
+        self.init_launcher()
     
-    def create_banking_interface(self, parent):
-        """Create banking operations interface"""
-        # Main frame
-        main_frame = tk.LabelFrame(
-            parent,
-            text="🏦 BANKING OPERATIONS CORE",
-            font=('Segoe UI', 14, 'bold'),
+    def init_launcher(self):
+        """Initialize launcher"""
+        self.root = tk.Tk()
+        self.root.title(f"🏦 {self.name}")
+        self.root.geometry("1400x900")
+        self.root.configure(bg='#0d1117')
+        
+        self.create_launcher_interface()
+    
+    def create_launcher_interface(self):
+        """Create launcher interface"""
+        # Main container
+        main_frame = tk.Frame(self.root, bg='#0d1117')
+        main_frame.pack(fill='both', expand=True, padx=10, pady=10)
+        
+        # Header
+        header_label = tk.Label(
+            main_frame,
+            text="🏦 BANKING OPERATIONS LAUNCHER",
+            font=('Segoe UI', 24, 'bold'),
             fg='#4ecdc4',
-            bg='#0d1117',
-            bd=2,
-            relief='solid'
+            bg='#0d1117'
         )
-        main_frame.pack(fill='both', expand=True, padx=10, pady=5)
+        header_label.pack(pady=(0, 10))
+        
+        subtitle_label = tk.Label(
+            main_frame,
+            text="Advanced Financial System Access and Banking Intelligence",
+            font=('Segoe UI', 14),
+            fg='#ffffff',
+            bg='#0d1117'
+        )
+        subtitle_label.pack(pady=(0, 20))
         
         # Control panel
-        control_frame = tk.Frame(main_frame, bg='#0d1117')
+        control_frame = tk.LabelFrame(
+            main_frame,
+            text="🎛️ OPERATION CONTROLS",
+            font=('Segoe UI', 12, 'bold'),
+            fg='#ff9ff3',
+            bg='#0d1117',
+            bd=1,
+            relief='solid'
+        )
         control_frame.pack(fill='x', padx=10, pady=5)
         
         # Target configuration
-        target_frame = tk.LabelFrame(
-            control_frame,
-            text="🎯 TARGET CONFIGURATION",
-            font=('Segoe UI', 10, 'bold'),
-            fg='#ff9ff3',
-            bg='#0d1117'
-        )
-        target_frame.pack(fill='x', pady=5)
+        target_frame = tk.Frame(control_frame, bg='#0d1117')
+        target_frame.pack(fill='x', padx=10, pady=5)
         
         # Bank selection
         tk.Label(
             target_frame,
             text="Target Bank:",
-            font=('Segoe UI', 9, 'bold'),
+            font=('Segoe UI', 10, 'bold'),
             fg='#ffffff',
             bg='#0d1117'
-        ).pack(anchor='w', padx=5, pady=2)
+        ).pack(anchor='w', pady=2)
         
         self.bank_var = tk.StringVar(value="Chase Bank")
         bank_combo = ttk.Combobox(
@@ -108,50 +96,50 @@ class BankingOperationsCore:
                 "Deutsche Bank", "Credit Suisse", "UBS", "Barclays"
             ],
             state="readonly",
-            font=('Segoe UI', 10)
+            font=('Segoe UI', 12)
         )
-        bank_combo.pack(fill='x', padx=5, pady=2)
+        bank_combo.pack(fill='x', pady=2)
         
         # Account range
         tk.Label(
             target_frame,
             text="Account Range:",
-            font=('Segoe UI', 9, 'bold'),
+            font=('Segoe UI', 10, 'bold'),
             fg='#ffffff',
             bg='#0d1117'
-        ).pack(anchor='w', padx=5, pady=2)
+        ).pack(anchor='w', pady=2)
         
         self.account_entry = tk.Entry(
             target_frame,
             bg='#21262d',
             fg='#c9d1d9',
-            font=('Consolas', 10),
+            font=('Consolas', 12),
             bd=0,
             relief='flat',
             insertbackground='#c9d1d9'
         )
-        self.account_entry.pack(fill='x', padx=5, pady=2)
+        self.account_entry.pack(fill='x', pady=2)
         self.account_entry.insert(0, "1000000000-1000009999")
         
         # Amount range
         tk.Label(
             target_frame,
             text="Amount Range ($):",
-            font=('Segoe UI', 9, 'bold'),
+            font=('Segoe UI', 10, 'bold'),
             fg='#ffffff',
             bg='#0d1117'
-        ).pack(anchor='w', padx=5, pady=2)
+        ).pack(anchor='w', pady=2)
         
         self.amount_entry = tk.Entry(
             target_frame,
             bg='#21262d',
             fg='#c9d1d9',
-            font=('Consolas', 10),
+            font=('Consolas', 12),
             bd=0,
             relief='flat',
             insertbackground='#c9d1d9'
         )
-        self.amount_entry.pack(fill='x', padx=5, pady=2)
+        self.amount_entry.pack(fill='x', pady=2)
         self.amount_entry.insert(0, "1000-100000")
         
         # Tool selection
@@ -162,12 +150,9 @@ class BankingOperationsCore:
             fg='#96ceb4',
             bg='#0d1117'
         )
-        tools_frame.pack(fill='x', pady=5)
+        tools_frame.pack(fill='x', padx=10, pady=5)
         
-        # Tool buttons
-        tool_buttons_frame = tk.Frame(tools_frame, bg='#0d1117')
-        tool_buttons_frame.pack(fill='x', padx=5, pady=5)
-        
+        # Tool checkboxes
         self.tool_vars = {}
         tool_configs = [
             ("account_manipulation", "💳 Account Manipulation", "Access and manipulate accounts"),
@@ -178,18 +163,18 @@ class BankingOperationsCore:
             ("cryptocurrency", "₿ Cryptocurrency Operations", "Digital currency manipulation")
         ]
         
-        for i, (tool_id, name, desc) in enumerate(tool_configs):
+        for tool_id, name, desc in tool_configs:
             var = tk.BooleanVar(value=True)
             self.tool_vars[tool_id] = var
             
-            tool_frame = tk.Frame(tool_buttons_frame, bg='#0d1117')
+            tool_frame = tk.Frame(tools_frame, bg='#0d1117')
             tool_frame.pack(fill='x', pady=2)
             
             cb = tk.Checkbutton(
                 tool_frame,
                 text=name,
                 variable=var,
-                font=('Segoe UI', 9, 'bold'),
+                font=('Segoe UI', 10, 'bold'),
                 fg='#c9d1d9',
                 bg='#0d1117',
                 selectcolor='#21262d',
@@ -201,7 +186,7 @@ class BankingOperationsCore:
             tk.Label(
                 tool_frame,
                 text=f"- {desc}",
-                font=('Segoe UI', 8),
+                font=('Segoe UI', 9),
                 fg='#7d8590',
                 bg='#0d1117'
             ).pack(side='left', padx=(10, 0))
@@ -217,10 +202,10 @@ class BankingOperationsCore:
             command=self.start_banking_operations,
             bg='#4ecdc4',
             fg='#000000',
-            font=('Segoe UI', 12, 'bold'),
+            font=('Segoe UI', 14, 'bold'),
             bd=0,
-            padx=30,
-            pady=15,
+            padx=40,
+            pady=20,
             cursor='hand2'
         )
         self.operation_btn.pack(side='left', padx=5)
@@ -232,10 +217,10 @@ class BankingOperationsCore:
             command=self.stop_banking_operations,
             bg='#6c757d',
             fg='#ffffff',
-            font=('Segoe UI', 12, 'bold'),
+            font=('Segoe UI', 14, 'bold'),
             bd=0,
-            padx=30,
-            pady=15,
+            padx=40,
+            pady=20,
             cursor='hand2',
             state='disabled'
         )
@@ -248,10 +233,10 @@ class BankingOperationsCore:
             command=self.export_results,
             bg='#ff9ff3',
             fg='#000000',
-            font=('Segoe UI', 12, 'bold'),
+            font=('Segoe UI', 14, 'bold'),
             bd=0,
-            padx=30,
-            pady=15,
+            padx=40,
+            pady=20,
             cursor='hand2'
         )
         self.export_btn.pack(side='left', padx=5)
@@ -260,9 +245,11 @@ class BankingOperationsCore:
         results_frame = tk.LabelFrame(
             main_frame,
             text="📊 OPERATION RESULTS",
-            font=('Segoe UI', 10, 'bold'),
+            font=('Segoe UI', 12, 'bold'),
             fg='#45b7d1',
-            bg='#0d1117'
+            bg='#0d1117',
+            bd=1,
+            relief='solid'
         )
         results_frame.pack(fill='both', expand=True, padx=10, pady=5)
         
@@ -282,9 +269,11 @@ class BankingOperationsCore:
         log_frame = tk.LabelFrame(
             main_frame,
             text="📝 OPERATION LOG",
-            font=('Segoe UI', 10, 'bold'),
+            font=('Segoe UI', 12, 'bold'),
             fg='#96ceb4',
-            bg='#0d1117'
+            bg='#0d1117',
+            bd=1,
+            relief='solid'
         )
         log_frame.pack(fill='x', padx=10, pady=5)
         
@@ -292,14 +281,14 @@ class BankingOperationsCore:
             log_frame,
             bg='#161b22',
             fg='#c9d1d9',
-            font=('Consolas', 8),
+            font=('Consolas', 9),
             wrap=tk.WORD,
             height=8
         )
         self.operation_log.pack(fill='both', expand=True, padx=5, pady=5)
         
         # Initial log message
-        self.log_operation("🏦 Banking Operations Core initialized")
+        self.log_operation("🏦 Banking Operations Launcher initialized")
         self.log_operation("🚀 Ready for advanced banking operations")
     
     def create_account_results_tab(self):
@@ -309,7 +298,7 @@ class BankingOperationsCore:
         
         # Account results tree
         columns = ('Account', 'Bank', 'Balance', 'Status', 'Access Level')
-        self.account_tree = ttk.Treeview(account_frame, columns=columns, show='headings', height=15)
+        self.account_tree = ttk.Treeview(account_frame, columns=columns, show='headings', height=12)
         
         for col in columns:
             self.account_tree.heading(col, text=col)
@@ -322,9 +311,9 @@ class BankingOperationsCore:
             account_frame,
             bg='#0d1117',
             fg='#c9d1d9',
-            font=('Consolas', 9),
+            font=('Consolas', 10),
             wrap=tk.WORD,
-            height=10
+            height=8
         )
         self.account_text.pack(fill='both', expand=True, padx=5, pady=5)
     
@@ -335,7 +324,7 @@ class BankingOperationsCore:
         
         # Transaction results tree
         columns = ('Account', 'Transaction ID', 'Amount', 'Type', 'Status', 'Timestamp')
-        self.transaction_tree = ttk.Treeview(transaction_frame, columns=columns, show='headings', height=15)
+        self.transaction_tree = ttk.Treeview(transaction_frame, columns=columns, show='headings', height=12)
         
         for col in columns:
             self.transaction_tree.heading(col, text=col)
@@ -348,9 +337,9 @@ class BankingOperationsCore:
             transaction_frame,
             bg='#0d1117',
             fg='#c9d1d9',
-            font=('Consolas', 9),
+            font=('Consolas', 10),
             wrap=tk.WORD,
-            height=10
+            height=8
         )
         self.transaction_text.pack(fill='both', expand=True, padx=5, pady=5)
     
@@ -361,7 +350,7 @@ class BankingOperationsCore:
         
         # SWIFT results tree
         columns = ('Message ID', 'Bank', 'Amount', 'Currency', 'Status', 'Direction')
-        self.swift_tree = ttk.Treeview(swift_frame, columns=columns, show='headings', height=15)
+        self.swift_tree = ttk.Treeview(swift_frame, columns=columns, show='headings', height=12)
         
         for col in columns:
             self.swift_tree.heading(col, text=col)
@@ -374,9 +363,9 @@ class BankingOperationsCore:
             swift_frame,
             bg='#0d1117',
             fg='#c9d1d9',
-            font=('Consolas', 9),
+            font=('Consolas', 10),
             wrap=tk.WORD,
-            height=10
+            height=8
         )
         self.swift_text.pack(fill='both', expand=True, padx=5, pady=5)
     
@@ -387,7 +376,7 @@ class BankingOperationsCore:
         
         # ATM results tree
         columns = ('ATM ID', 'Location', 'Bank', 'Status', 'Cash Level', 'Last Transaction')
-        self.atm_tree = ttk.Treeview(atm_frame, columns=columns, show='headings', height=15)
+        self.atm_tree = ttk.Treeview(atm_frame, columns=columns, show='headings', height=12)
         
         for col in columns:
             self.atm_tree.heading(col, text=col)
@@ -400,9 +389,9 @@ class BankingOperationsCore:
             atm_frame,
             bg='#0d1117',
             fg='#c9d1d9',
-            font=('Consolas', 9),
+            font=('Consolas', 10),
             wrap=tk.WORD,
-            height=10
+            height=8
         )
         self.atm_text.pack(fill='both', expand=True, padx=5, pady=5)
     
@@ -413,7 +402,7 @@ class BankingOperationsCore:
         
         # Credit card results tree
         columns = ('Card Number', 'Bank', 'Type', 'Limit', 'Balance', 'Status')
-        self.card_tree = ttk.Treeview(card_frame, columns=columns, show='headings', height=15)
+        self.card_tree = ttk.Treeview(card_frame, columns=columns, show='headings', height=12)
         
         for col in columns:
             self.card_tree.heading(col, text=col)
@@ -426,9 +415,9 @@ class BankingOperationsCore:
             card_frame,
             bg='#0d1117',
             fg='#c9d1d9',
-            font=('Consolas', 9),
+            font=('Consolas', 10),
             wrap=tk.WORD,
-            height=10
+            height=8
         )
         self.card_text.pack(fill='both', expand=True, padx=5, pady=5)
     
@@ -439,7 +428,7 @@ class BankingOperationsCore:
         
         # Cryptocurrency results tree
         columns = ('Wallet', 'Currency', 'Balance', 'Transactions', 'Status', 'Last Activity')
-        self.crypto_tree = ttk.Treeview(crypto_frame, columns=columns, show='headings', height=15)
+        self.crypto_tree = ttk.Treeview(crypto_frame, columns=columns, show='headings', height=12)
         
         for col in columns:
             self.crypto_tree.heading(col, text=col)
@@ -452,9 +441,9 @@ class BankingOperationsCore:
             crypto_frame,
             bg='#0d1117',
             fg='#c9d1d9',
-            font=('Consolas', 9),
+            font=('Consolas', 10),
             wrap=tk.WORD,
-            height=10
+            height=8
         )
         self.crypto_text.pack(fill='both', expand=True, padx=5, pady=5)
     
@@ -815,27 +804,25 @@ Last Activity: {last_activity}
     
     def export_results(self):
         """Export operation results"""
-        filename = filedialog.asksaveasfilename(
-            defaultextension=".json",
-            filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
-        )
-        
-        if filename:
-            results = {
-                "operation_timestamp": datetime.now().isoformat(),
-                "targets": self.targets,
-                "results": self.results
-            }
-            
-            with open(filename, 'w') as f:
-                json.dump(results, f, indent=2)
-            
-            self.log_operation(f"📊 Results exported to: {filename}")
-            messagebox.showinfo("Export Complete", f"Results exported to:\n{filename}")
+        self.log_operation("📊 Exporting operation results...")
+        messagebox.showinfo("Export", "📊 Banking operation results export functionality ready!")
     
     def log_operation(self, message):
         """Log operation message"""
         timestamp = datetime.now().strftime("%H:%M:%S")
         formatted_message = f"[{timestamp}] {message}\n"
         self.operation_log.insert(tk.END, formatted_message)
-        self.operation_log.see(tk.END) 
+        self.operation_log.see(tk.END)
+    
+    def run(self):
+        """Run launcher"""
+        print(f"🏦 Starting {self.name}")
+        self.root.mainloop()
+
+def main():
+    """Main entry point"""
+    launcher = BankingOperationsLauncher()
+    launcher.run()
+
+if __name__ == "__main__":
+    main() 

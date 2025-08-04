@@ -1,0 +1,3 @@
+card_number,bank,type,limit,balance,status,expiry
+**** **** **** 1234,Chase Bank,Visa,"$25,000","$8,500",Active,12/26
+**** **** **** 5678,Bank of America,Mastercard,"$30,000","$12,300",Active,09/25

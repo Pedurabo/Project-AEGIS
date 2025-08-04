@@ -1,0 +1,28 @@
+BANKING TOOLS EXPORT REPORT
+==================================================
+Tool: Credit Card Operations Tool
+Export Timestamp: 2025-08-04 14:46:36
+Format: TXT
+Version: 2.0.0
+==================================================
+
+Operation 1:
+------------------------------
+card_number: **** **** **** 1234
+bank: Chase Bank
+type: Visa
+limit: $25,000
+balance: $8,500
+status: Active
+expiry: 12/26
+
+Operation 2:
+------------------------------
+card_number: **** **** **** 5678
+bank: Bank of America
+type: Mastercard
+limit: $30,000
+balance: $12,300
+status: Active
+expiry: 09/25
+

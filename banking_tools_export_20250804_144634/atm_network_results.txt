@@ -1,0 +1,28 @@
+BANKING TOOLS EXPORT REPORT
+==================================================
+Tool: ATM Network Tool
+Export Timestamp: 2025-08-04 14:46:35
+Format: TXT
+Version: 2.0.0
+==================================================
+
+Operation 1:
+------------------------------
+atm_id: ATM1234
+location: New York
+bank: Chase Bank
+status: Online
+cash_level: $45,000
+last_transaction: 2024-01-15 14:45:20
+security_level: High
+
+Operation 2:
+------------------------------
+atm_id: ATM5678
+location: London
+bank: Barclays
+status: Online
+cash_level: £30,000
+last_transaction: 2024-01-15 14:46:30
+security_level: High
+

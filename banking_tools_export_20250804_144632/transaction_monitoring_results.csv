@@ -1,0 +1,3 @@
+account,transaction_id,amount,type,status,timestamp
+1000000001,TXN123456,"$1,250",Deposit,Completed,2024-01-15 14:35:42
+1000000002,TXN123457,$500,Withdrawal,Completed,2024-01-15 14:36:15

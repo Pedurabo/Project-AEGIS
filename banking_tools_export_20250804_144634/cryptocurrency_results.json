@@ -1,0 +1,28 @@
+{
+  "export_info": {
+    "tool_name": "Cryptocurrency Operations Tool",
+    "export_timestamp": "2025-08-04T14:46:36.951718",
+    "format": "JSON",
+    "version": "2.0.0"
+  },
+  "operations": [
+    {
+      "wallet": "BTC123456",
+      "currency": "Bitcoin",
+      "balance": "2.4567",
+      "transactions": "45",
+      "status": "Active",
+      "last_activity": "2024-01-15 14:50:10",
+      "value_usd": "$98,268.00"
+    },
+    {
+      "wallet": "ETH789012",
+      "currency": "Ethereum",
+      "balance": "15.7890",
+      "transactions": "32",
+      "status": "Active",
+      "last_activity": "2024-01-15 14:51:25",
+      "value_usd": "$47,367.00"
+    }
+  ]
+}

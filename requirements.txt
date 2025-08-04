@@ -1,34 +1,33 @@
-# AI/ML Core Dependencies
-numpy>=1.24.0
+# AEGIS System Dependencies
+# Core Python packages
+reportlab>=4.0.0
 pandas>=2.0.0
-scikit-learn>=1.3.0
-tensorflow>=2.13.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
+numpy>=1.20.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
 
-# Data Processing
-joblib>=1.3.0
-pickle-mixin>=1.0.2
-
-# Network and HTTP
-requests>=2.31.0
+# Web and networking
+requests>=2.25.0
 aiohttp>=3.8.0
+beautifulsoup4>=4.10.0
 
-# UI/UX (Optional)
-tkinter  # Usually comes with Python
-pillow>=10.0.0
+# Audio and speech processing
+SpeechRecognition>=3.8.0
+pyttsx3>=2.90
+pyaudio>=0.2.11
 
-# Development and Testing
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
-black>=23.11.0
-flake8>=6.1.0
-bandit>=1.7.5
-safety>=2.3.0
+# Security and penetration testing tools
+scapy>=2.4.0
+python-nmap>=0.7.0
+paramiko>=2.8.0
 
-# DevOps and Monitoring
-prometheus-client>=0.19.0
-structlog>=23.2.0
+# Additional utilities
+python-dateutil>=2.8.0
+Pillow>=8.0.0
+openpyxl>=3.0.0
+xlrd>=2.0.0
 
-# Security Tools
-cryptography>=41.0.0 
+# Optional: For advanced features
+# tensorflow>=2.8.0
+# torch>=1.10.0
+# scikit-learn>=1.0.0 

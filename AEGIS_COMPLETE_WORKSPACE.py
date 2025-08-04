@@ -16,7 +16,7 @@ from silos.developmental.ai_ml_chat_core import AEGISChatAI
 from silos.developmental.data_processing_core import AEGISDataProcessor
 from silos.developmental.report_generation_core import AEGISReportGenerator
 from silos.security.penetration_engine import AEGISPenetrationEngine
-from silos.security.banking_operations_core import AEGISBankingOperations
+from silos.security.banking_operations_core import BankingOperationsCore as AEGISBankingOperations
 from silos.security.global_dominance_mini import AEGISGlobalDominance
 from silos.operational.workspace_interface_mini import AEGISWorkspaceInterface
 from silos.operational.monitoring_dashboard_mini import AEGISMonitoringDashboard

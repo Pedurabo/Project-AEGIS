@@ -1,0 +1,30 @@
+{
+  "export_info": {
+    "tool_name": "SWIFT Access Tool",
+    "export_timestamp": "2025-08-04T14:46:14.484736",
+    "format": "JSON",
+    "version": "2.0.0"
+  },
+  "operations": [
+    {
+      "message_id": "SWIFT123456",
+      "source_bank": "Chase Bank",
+      "target_bank": "Deutsche Bank",
+      "amount": "50,000 EUR",
+      "currency": "EUR",
+      "status": "Sent",
+      "direction": "Outbound",
+      "timestamp": "2024-01-15 14:40:30"
+    },
+    {
+      "message_id": "SWIFT123457",
+      "source_bank": "Barclays",
+      "target_bank": "Bank of America",
+      "amount": "25,000 GBP",
+      "currency": "GBP",
+      "status": "Received",
+      "direction": "Inbound",
+      "timestamp": "2024-01-15 14:42:15"
+    }
+  ]
+}

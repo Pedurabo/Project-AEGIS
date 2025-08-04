@@ -739,7 +739,7 @@ class AEGISPenetrationEngine:
         })
         
         self.target_tree.insert('', 'end', values=(
-            target,
+                        target,
             target_type,
             "Pending",
             timestamp

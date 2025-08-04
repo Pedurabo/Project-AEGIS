@@ -1,0 +1,28 @@
+{
+  "export_info": {
+    "tool_name": "ATM Network Tool",
+    "export_timestamp": "2025-08-04T18:28:57.299663",
+    "format": "JSON",
+    "version": "2.0.0"
+  },
+  "operations": [
+    {
+      "atm_id": "ATM1234",
+      "location": "New York",
+      "bank": "Chase Bank",
+      "status": "Online",
+      "cash_level": "$45,000",
+      "last_transaction": "2024-01-15 14:45:20",
+      "security_level": "High"
+    },
+    {
+      "atm_id": "ATM5678",
+      "location": "London",
+      "bank": "Barclays",
+      "status": "Online",
+      "cash_level": "£30,000",
+      "last_transaction": "2024-01-15 14:46:30",
+      "security_level": "High"
+    }
+  ]
+}

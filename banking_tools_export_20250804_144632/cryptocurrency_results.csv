@@ -1,0 +1,3 @@
+wallet,currency,balance,transactions,status,last_activity,value_usd
+BTC123456,Bitcoin,2.4567,45,Active,2024-01-15 14:50:10,"$98,268.00"
+ETH789012,Ethereum,15.7890,32,Active,2024-01-15 14:51:25,"$47,367.00"

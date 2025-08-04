@@ -1,0 +1,3 @@
+message_id,source_bank,target_bank,amount,currency,status,direction,timestamp
+SWIFT123456,Chase Bank,Deutsche Bank,"50,000 EUR",EUR,Sent,Outbound,2024-01-15 14:40:30
+SWIFT123457,Barclays,Bank of America,"25,000 GBP",GBP,Received,Inbound,2024-01-15 14:42:15

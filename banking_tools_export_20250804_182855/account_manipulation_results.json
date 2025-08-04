@@ -1,0 +1,28 @@
+{
+  "export_info": {
+    "tool_name": "Account Manipulation Tool",
+    "export_timestamp": "2025-08-04T18:28:55.673610",
+    "format": "JSON",
+    "version": "2.0.0"
+  },
+  "operations": [
+    {
+      "account_number": "1000000001",
+      "bank": "Chase Bank",
+      "balance": "$45,678",
+      "status": "Active",
+      "access_level": "Full Access",
+      "operation": "Account Access",
+      "timestamp": "2024-01-15 14:30:25"
+    },
+    {
+      "account_number": "1000000002",
+      "bank": "Bank of America",
+      "balance": "$123,456",
+      "status": "Active",
+      "access_level": "Full Access",
+      "operation": "Balance Modification",
+      "timestamp": "2024-01-15 14:32:10"
+    }
+  ]
+}

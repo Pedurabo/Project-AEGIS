@@ -1,0 +1,3 @@
+account_number,bank,balance,status,access_level,operation,timestamp
+1000000001,Chase Bank,"$45,678",Active,Full Access,Account Access,2024-01-15 14:30:25
+1000000002,Bank of America,"$123,456",Active,Full Access,Balance Modification,2024-01-15 14:32:10
